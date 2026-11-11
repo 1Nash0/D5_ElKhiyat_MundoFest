@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MundoFest · Meet.Mix.Belong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Joti+One&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --main: #2FA5AB;
+    --accent: #F1B412;
+    --bg: #F4E3B4;
+    --text: #8A1A1A;
+    --postit: #FBF3D6;
+    --display: "Joti One", "Arial Black", Impact, sans-serif;
+    --body: "Work Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+  main { max-width: 1040px; margin: 0 auto; padding: 2.5rem 1.25rem 3rem; }
+
+  /* Hero */
+  .hero { text-align: center; padding: 1.5rem 0 2.5rem; }
+  .wordmark {
+    font-family: var(--display);
+    font-size: clamp(3.4rem, 14vw, 7.5rem);
+    line-height: .9;
+    margin: 0;
+    letter-spacing: .01em;
+    -webkit-text-stroke: 3px #1a0a05;
+    paint-order: stroke fill;
+  }
+  .wordmark .a { color: var(--accent); display: block; }
+  .wordmark .b { color: var(--text); display: block; }
+  .tagline { font-family: var(--display); font-size: clamp(1.5rem, 4.5vw, 2.25rem); margin: 1.5rem 0 .25rem; }
+  .lead { max-width: 34rem; margin: 0 auto 1.5rem; }
+  .when {
+    display: inline-block;
+    background: var(--accent);
+    border: 2px solid var(--text);
+    border-radius: 999px;
+    padding: .4rem 1.1rem;
+    font-weight: 600;
+  }
+
+  /* Notice board */
+  h2 { font-family: var(--display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 0 0 .25rem; }
+  .board { margin-top: 1.5rem; }
+  .board > p { margin: 0 0 1.25rem; max-width: 36rem; }
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .panel-title { font-family: var(--display); font-size: 1.7rem; margin: 0 0 .5rem; }
+  .panel {
+    background: var(--main);
+    border: 3px solid var(--accent);
+    border-radius: 18px;
+    padding: 1.25rem 1rem 1.5rem;
+    min-height: 21rem;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .note {
+    background: var(--postit);
+    padding: 1rem 1rem 1.1rem;
+    box-shadow: 0 2px 0 rgba(0,0,0,.18);
+    position: relative;
+    max-width: 90%;
+  }
+  .note::before {
+    content: ""; position: absolute; top: -9px; left: 38%;
+    width: 64px; height: 18px; background: rgba(255,255,255,.65);
+    border: 1px solid rgba(0,0,0,.08); transform: rotate(-4deg);
+  }
+  .note:nth-child(1) { transform: rotate(-2deg); }
+  .note:nth-child(2) { transform: rotate(1.5deg); align-self: flex-end; }
+  .note:nth-child(3) { transform: rotate(-1deg); }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--text);
+    font-family: var(--display);
+    font-size: 1.4rem;
+    text-decoration: none;
+    border: 3px solid var(--text);
+    border-radius: 999px;
+    padding: .55rem 1.6rem;
+    transition: background .15s, transform .15s;
+  }
+  .btn:hover { background: #f7c93f; transform: translateY(-2px); }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+  .btn[aria-disabled="true"] { background: #d9cfa8; border-color: #9a8c6c; color: #6b5a3a; pointer-events: none; }
+  .soon { display: none; margin: .75rem 0 0; font-size: 1rem; }
+  .is-soon .soon { display: block; }
+
+  /* Steps */
+  .steps { margin-top: 3.5rem; border-top: 3px solid var(--text); padding-top: 1.5rem; }
+  .steps ul { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .steps li strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.8rem; }
+
+  footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 3px solid var(--text); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; }
+  footer a { color: var(--text); font-weight: 600; }
+
+  @media (max-width: 720px) {
+    .panels, .steps ul { grid-template-columns: 1fr; }
+    .panel { min-height: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <h1 class="wordmark" aria-label="MundoFest"><span class="a">MUNDO</span><span class="b">FEST</span></h1>
+    <p class="tagline">Meet.Mix.Belong</p>
+    <p class="lead">A festival in Brussels where exchange and local students meet through what they love, not where they come from.</p>
+    <p class="when">16/09 · Tour &amp; Taxi Park · Starting at 18:00</p>
+  </header>
+
+  <section class="board" id="board" aria-labelledby="board-title">
+    <h2 id="board-title">One question starts it</h2>
+    <p>Write a question about hobbies and interests, or answer someone else’s. Your answer might be the start of a new friendship.</p>
+    <div class="panels">
+      <div>
+        <h3 class="panel-title">Questions</h3>
+        <div class="panel">
+          <div class="note">What is your weirdest hobby?</div>
+          <div class="note">Best places in Brussels to play a board game?</div>
+          <div class="note">Cats or dogs? Defend your answer.</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="panel-title">Answers</h3>
+        <div class="panel">
+          <div class="note">Collecting old train tickets. Come and see them.</div>
+          <div class="note">Try the café near the Grand-Place on Sundays.</div>
+          <div class="note">Dogs. Join me for a walk in the park.</div>
+        </div>
+      </div>
+    </div>
+    <div class="actions" id="actions">
+      <a class="btn" id="ask" href="#board">Ask something</a>
+      <a class="btn" id="answer" href="#board">Answer someone</a>
+    </div>
+    <p class="soon">The board opens soon. Scan the poster again in a few days.</p>
+  </section>
+
+  <section class="steps" aria-labelledby="steps-title">
+    <h2 id="steps-title">How it works</h2>
+    <ul>
+      <li><strong>Ask.</strong> Leave a question about something you like.</li>
+      <li><strong>Answer.</strong> Reply to a question that makes you curious.</li>
+      <li><strong>Meet.</strong> Come to the festival and say hi to the person behind the answer.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>MundoFest · Cross Media Design I, Erasmushogeschool Brussel</span>
+    <a id="ig" href="#">Instagram</a>
+  </footer>
+</main>
+
+<script>
+  // Fill in these two links before you publish.
+  // BOARD_URL: the shared board where people write (for example a Padlet link).
+  // INSTAGRAM_URL: the festival's Instagram profile.
+  const BOARD_URL = "";
+  const INSTAGRAM_URL = "";
+
+  const ask = document.getElementById("ask");
+  const answer = document.getElementById("answer");
+  const board = document.getElementById("board");
+  const ig = document.getElementById("ig");
+
+  if (BOARD_URL) {
+    [ask, answer].forEach(function (el) {
+      el.href = BOARD_URL;
+      el.target = "_blank";
+      el.rel = "noopener";
+    });
+  } else {
+    [ask, answer].forEach(function (el) { el.setAttribute("aria-disabled", "true"); });
+    board.classList.add("is-soon");
+  }
+
+  if (INSTAGRAM_URL) {
+    ig.href = INSTAGRAM_URL;
+    ig.target = "_blank";
+    ig.rel = "noopener";
+  } else {
+    ig.hidden = true;
+  }
+</script>
+</body>
+</html>
