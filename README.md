@@ -4,7 +4,7 @@
 
 1_Touchpoint/Logo.png 
 
-1_Touchpoint/index.html · Website of the festival
+1_Touchpoint/index.html · Website of the festival To use it you need to scan the QR code from the poster or any other campaign asset.
 
 1_Touchpoint/Final_Poster.png · A3/A2
 
